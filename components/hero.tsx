@@ -43,11 +43,11 @@ export default function Hero() {
     <section className="min-h-screen flex items-center relative overflow-hidden pt-16">
       {/* Right - Large Image - Behind content */}
       <div className={`${isLoaded ? "animate-fade-in" : "opacity-0"} hidden lg:block absolute right-0 top-0 w-1/2 h-screen`}>
-        <div className="relative h-full pt-16">
+        <div className="relative h-full pt-20">
           <img
             src="/Sitembile.png"
             alt="Sitembile Ncube-Kaseka"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-top"
           />
           {/* Subtle overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
@@ -96,7 +96,7 @@ export default function Hero() {
               <img
                 src="/Sitembile.png"
                 alt="Sitembile Ncube-Kaseka"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-top"
               />
               {/* Bottom gradient shadow to blend with background */}
               <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
