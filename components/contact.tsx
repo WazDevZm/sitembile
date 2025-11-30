@@ -23,14 +23,33 @@ export default function Contact() {
     return () => observer.disconnect()
   }, [])
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-    alert("Thank you for your message! I'll get back to you soon.")
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    setIsSubmitting(false)
+
+    try {
+      const formDataToSend = new FormData(e.currentTarget)
+      formDataToSend.append("access_key", "0e810d5e-0eae-4674-825c-db19915e6ab9")
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend,
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        alert("Thank you for your message! I'll get back to you soon.")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        alert("Failed to send message. Please try again.")
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+      alert("Failed to send message. Please try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -53,7 +72,7 @@ export default function Contact() {
             {/* Contact Cards */}
             <div className="lg:col-span-1 space-y-6">
               <a
-                href="mailto:contact@sitembile.com"
+                href="mailto:ncubesitembile@yahoo.com"
                 className="group flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary transition-all duration-300"
               >
                 <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -61,12 +80,12 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Email</p>
-                  <p className="font-semibold text-foreground">contact@sitembile.com</p>
+                  <p className="font-semibold text-foreground">ncubesitembile@yahoo.com</p>
                 </div>
               </a>
 
               <a
-                href="https://www.linkedin.com/in/sitembile-ncube-kaseka"
+                href="https://www.linkedin.com/in/sitembile-ncube-kaseka-msc-beng-243208a1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-start gap-4 p-6 bg-card rounded-xl border border-border hover:border-secondary transition-all duration-300"

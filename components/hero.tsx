@@ -51,6 +51,8 @@ export default function Hero() {
           />
           {/* Subtle overlay for text readability */}
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/30 to-transparent" />
+          {/* Bottom gradient shadow to blend with background */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
         </div>
       </div>
 
@@ -96,6 +98,8 @@ export default function Hero() {
                 alt="Sitembile Ncube-Kaseka"
                 className="w-full h-full object-cover object-center"
               />
+              {/* Bottom gradient shadow to blend with background */}
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
             </div>
           </div>
         </div>
