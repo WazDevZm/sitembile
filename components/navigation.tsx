@@ -33,8 +33,17 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - SNK */}
-          <Link href="/" className="text-3xl font-bold text-primary hover:opacity-80 transition-opacity font-playfair tracking-wider">
-            SNK
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img
+              src="/engineer_17714324.png"
+              alt="SNK Logo"
+              className="h-10 w-10 object-contain"
+              style={{
+                filter:
+                  "brightness(0) saturate(100%) invert(45%) sepia(85%) saturate(2500%) hue-rotate(200deg) brightness(95%) contrast(95%)",
+              }}
+            />
+            <span className="text-3xl font-bold text-primary font-playfair tracking-wider">SNK</span>
           </Link>
 
           {/* Desktop Navigation */}
